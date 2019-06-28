@@ -34,9 +34,9 @@ public class StatUtils {
     /*
     POSSIBLE MAIN PROC STAT BY NUMBER
      */
-    public HashMap<Integer, ArrayList<Stat>> mapForPossibleMainProcStatTwo = new HashMap();
-    public HashMap<Integer, ArrayList<Stat>> mapForPossibleMainProcStatFour = new HashMap();
-    public HashMap<Integer, ArrayList<Stat>> mapForPossibleMainProcStatSix = new HashMap();
+    public ArrayList<Stat> arrayListForPossibleMainProcStatTwo = new ArrayList<Stat>();
+    public ArrayList<Stat> arrayListForPossibleMainProcStatFour = new ArrayList<Stat>();
+    public ArrayList<Stat> arrayListForPossibleMainProcStatSix = new ArrayList<Stat>();
 
     public StatUtils(){
         init();
@@ -139,11 +139,60 @@ public class StatUtils {
     public void init() {
         initInitialMainProcMaps();
         initSubstatUpgradeMaps();
-        initMapForPossibleMainProcByNumber();
+        initArrayListForPossibleMainProcByNumber();
     }
 
-    private void initMapForPossibleMainProcByNumber() {
+    public ArrayList<Stat> getArrayListForPossibleMainProcStatTwo() {
+        return arrayListForPossibleMainProcStatTwo;
+    }
 
+    public ArrayList<Stat> getArrayListForPossibleMainProcStatFour() {
+        return arrayListForPossibleMainProcStatFour;
+    }
+
+    public ArrayList<Stat> getArrayListForPossibleMainProcStatSix() {
+        return arrayListForPossibleMainProcStatSix;
+    }
+
+    private void initArrayListForPossibleMainProcByNumber() {
+        arrayListForPossibleMainProcStatTwo.add(Stat.AttaqueFlat);
+        arrayListForPossibleMainProcStatTwo.add(Stat.AttaquePercent);
+        arrayListForPossibleMainProcStatTwo.add(Stat.DefenseFlat);
+        arrayListForPossibleMainProcStatTwo.add(Stat.DefensePercent);
+        arrayListForPossibleMainProcStatTwo.add(Stat.HPFlat);
+        arrayListForPossibleMainProcStatTwo.add(Stat.HPPercent);
+        arrayListForPossibleMainProcStatTwo.add(Stat.Vitesse);
+
+        arrayListForPossibleMainProcStatFour.add(Stat.AttaqueFlat);
+        arrayListForPossibleMainProcStatFour.add(Stat.AttaquePercent);
+        arrayListForPossibleMainProcStatFour.add(Stat.DefenseFlat);
+        arrayListForPossibleMainProcStatFour.add(Stat.DefensePercent);
+        arrayListForPossibleMainProcStatFour.add(Stat.HPFlat);
+        arrayListForPossibleMainProcStatFour.add(Stat.HPPercent);
+        arrayListForPossibleMainProcStatFour.add(Stat.TauxCritique);
+        arrayListForPossibleMainProcStatFour.add(Stat.DégatsCritiques);
+
+        arrayListForPossibleMainProcStatSix.add(Stat.AttaqueFlat);
+        arrayListForPossibleMainProcStatSix.add(Stat.AttaquePercent);
+        arrayListForPossibleMainProcStatSix.add(Stat.DefenseFlat);
+        arrayListForPossibleMainProcStatSix.add(Stat.DefensePercent);
+        arrayListForPossibleMainProcStatSix.add(Stat.HPFlat);
+        arrayListForPossibleMainProcStatSix.add(Stat.HPPercent);
+        arrayListForPossibleMainProcStatSix.add(Stat.Resistance);
+        arrayListForPossibleMainProcStatSix.add(Stat.Precision);
+    }
+
+    private ArrayList<Stat> getArrayListForPossibleMainProcByNumber(int number) {
+        if (number == 2){
+            return arrayListForPossibleMainProcStatTwo;
+        }
+        if (number == 4){
+            return arrayListForPossibleMainProcStatFour;
+        }
+        if (number == 6){
+            return arrayListForPossibleMainProcStatSix;
+        }
+        return null;
     }
 
     public void initInitialMainProcMaps()

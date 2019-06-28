@@ -52,10 +52,15 @@ public class Runes {
         initStats(r.nextBoolean());
     }
 
+    public int getNumberOfStar() {
+        return numberOfStar;
+    }
+
     public String prettyPrint(){
         StringBuilder sb = new StringBuilder();
         sb.append("Set = " + getSet() + "\n");
         sb.append("N° = " + getNumber() + "\n");
+        sb.append("Number of Stars = " + getNumberOfStar() + "\n");
         sb.append("Rarity = " + getRarityName() + "\n");
         sb.append("AmountMain = " + getAmountMain() + " MainStat = " + getMainStat() + "\n");
         if (innateStat != null) {
@@ -115,18 +120,22 @@ public class Runes {
         for (int rarityMeter = 0; rarityMeter < numberOfAddedStats; rarityMeter++) {
             if (rarityMeter == 0) {
                 setFirstProc(produceNewStat());
+                existingStat.add(firstProc);
                 setAmountFirst(r.nextInt(10));
             }
             if (rarityMeter == 1) {
                 setSecondProc(produceNewStat());
+                existingStat.add(secondProc);
                 setAmountSecond(r.nextInt(10));
             }
             if (rarityMeter == 2) {
                 setThirdProc(produceNewStat());
+                existingStat.add(thirdProc);
                 setAmountThird(r.nextInt(10));
             }
             if (rarityMeter == 3) {
                 setFourthProc(produceNewStat());
+                existingStat.add(fourthProc);
                 setAmountFourth(r.nextInt(10));
             }
         }
@@ -168,8 +177,8 @@ public class Runes {
     }
 
     private void setInitialMainProcNumberTwo() {
-        setMainStat(Stat.values()[r.nextInt(Stat.values().length)]);
-        setAmountMain(r.nextInt(10)+10);
+        setMainStat(statUtils.getArrayListForPossibleMainProcStatTwo().get(r.nextInt(statUtils.getArrayListForPossibleMainProcStatTwo().size())));
+        setAmountMain(statUtils.getInitialMainProcMapByStarLevel(numberOfStar).get(mainStat));
     }
 
     private void setInitialMainProcNumberThree() {
@@ -178,8 +187,8 @@ public class Runes {
     }
 
     private void setInitialMainProcNumberFour() {
-        setMainStat(Stat.values()[r.nextInt(Stat.values().length)]);
-        setAmountMain(r.nextInt(10)+10);
+        setMainStat(statUtils.getArrayListForPossibleMainProcStatTwo().get(r.nextInt(statUtils.getArrayListForPossibleMainProcStatTwo().size())));
+        setAmountMain(statUtils.getInitialMainProcMapByStarLevel(numberOfStar).get(mainStat));
     }
 
     private void setInitialMainProcNumberFive() {
@@ -188,8 +197,8 @@ public class Runes {
     }
 
     private void setInitialMainProcNumberSix() {
-        setMainStat(Stat.values()[r.nextInt(Stat.values().length)]);
-        setAmountMain(r.nextInt(10)+10);
+        setMainStat(statUtils.getArrayListForPossibleMainProcStatTwo().get(r.nextInt(statUtils.getArrayListForPossibleMainProcStatTwo().size())));
+        setAmountMain(statUtils.getInitialMainProcMapByStarLevel(numberOfStar).get(mainStat));
     }
 
     private void initInnateStat(boolean hasInnate) {
